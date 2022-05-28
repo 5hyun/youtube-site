@@ -205,6 +205,11 @@ header .icons i {
   margin-top: var(--spacing-small);
 }
 
+.infoAndUpNext {
+  margin-left: var(--spacing);
+  margin-right: var(--spacing);
+}
+
 @media screen and (min-width: 768px) {
   .infoAndUpNext {
     display: flex;
