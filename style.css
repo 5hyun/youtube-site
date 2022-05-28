@@ -103,6 +103,11 @@ header .icons i {
   height: 100%;
 }
 
+.info .metadata .views {
+  font-size: var(--font-micro);
+  color: var(--grey-dark-color);
+}
+
 .info .actions {
   display: flex;
   justify-content: space-evenly;
@@ -138,6 +143,7 @@ header .icons i {
   display: flex;
   flex-direction: column;
   margin-left: var(--spacing);
+  justify-content: center;
 }
 
 .channel .metadata .info .subscribers {
@@ -180,6 +186,9 @@ header .icons i {
 
 .upNext .item img {
   width: 100%;
+  height: 15vh;
+  max-width: 222px;
+  max-height: 112px;
 }
 
 .upNext .item .itemInfo {
@@ -227,5 +236,6 @@ header .icons i {
 
   .player video {
     max-width: 800px;
+    max-height: 400px;
   }
 }
