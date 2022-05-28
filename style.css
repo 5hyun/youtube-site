@@ -1,16 +1,67 @@
+:root {
+  /* Color */
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /* Size */
+  --spacing: 12px;
+  --spacing-small: 6px;
+  --avatar-size: 36px;
+
+  /* Font Size */
+  --font-large: 20px;
+  --font-regular: 16px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: var(--white-color);
+}
+
 header {
   display: flex;
   justify-content: space-between;
-  padding: 8px 12px;
-  background-color: black;
-  color: white;
+  margin-left: var(--spacing);
+  margin-right: var(--spacing);
 }
 
-header .fa-youtube {
-  color: red;
+header .logo {
+  font-size: var(--font-large);
 }
 
-/* player 보고함 */
+header .logo .fa-youtube {
+  color: var(--red-color);
+}
+
+header .icons i {
+  margin-right: var(--spacing-small/2);
+}
+
+/* 비디오는 항상 어렵다ㅠ */
 .player {
   position: sticky;
   top: 0;
@@ -21,56 +72,84 @@ header .fa-youtube {
 .player video {
   width: 100%;
   height: 100%;
-  max-width: 1000px;
+  max-width: 600px;
 }
 
-.hashtags {
+.info .metadata .hashtags {
   display: flex;
-  padding-left: 0;
-  font-size: 12px;
+  justify-content: flex-start;
 }
 
-.hashtags li {
-  list-style: none;
-  padding-right: 10px;
-  color: #289aff;
+.info .metadata .hashtags li {
+  margin-right: var(--spacing);
+  font-size: var(--font-small);
+  color: var(--blue-color);
 }
 
-.titleAndButton {
+.info .metadata .titleAndButton {
   display: flex;
 }
 
-.views {
-  font-size: 12px;
-  color: gray;
+/* 이건 드림코딩님도 구글링 하심 */
+.info .metadata .titleAndButton .title.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
-.actions {
+/* 버튼도 헷갈린다ㅜㅜ */
+.info .metadata .titleAndButton .moreBtn {
+  height: 100%;
+}
+
+.info .actions {
   display: flex;
-  justify-content: space-around;
-  padding: 8px 12px;
+  justify-content: space-evenly;
+  margin-top: var(--spacing);
 }
 
-.actions li {
+.info .actions i {
+  margin-bottom: var(--spacing);
+}
+
+.info .actions button {
   display: flex;
   flex-direction: column;
-  list-style: none;
+  align-items: center;
+  font-size: var(--font-regular);
 }
 
-.actions i {
-  padding-bottom: 4px;
+.channel {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing/2);
+  margin-bottom: var(--spacing/2);
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
 }
 
-.actions button {
-  border: 0;
-  outline: 0;
-  background-color: white;
+.channel .metadata {
+  flex-basis: 90%;
+  display: flex;
 }
 
-.actions span {
-  text-align: center;
+.channel .metadata .info {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--spacing);
 }
 
+.channel .metadata .info .subscribers {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.channel .subscribe {
+  color: var(--red-color);
+}
+
+/* 프로필 원형 만들기 어렵다 */
 .channel img {
   width: 8vh;
   height: 6vh;
@@ -78,7 +157,70 @@ header .fa-youtube {
   overflow: hidden;
 }
 
-.channel {
+.upNext > .title {
+  font-size: var(--font-regular);
+  color: var(--grey-dark-color);
+  margin-top: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.upNext ul {
   display: flex;
-  padding-right: 0;
+  flex-direction: column;
+}
+
+.upNext .item {
+  display: flex;
+}
+
+.upNext .item .img {
+  flex-basis: 35%;
+  margin-right: var(--spacing);
+}
+
+.upNext .item img {
+  width: 100%;
+}
+
+.upNext .item .itemInfo {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.upNext .item .itemInfo .title {
+  font-size: var(--font-large);
+}
+
+.upNext .item .itemInfo .name,
+.upNext .item .itemInfo .views {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.upNext .item .moreBtn {
+  flex-basis: 5%;
+  height: 100%;
+  margin-top: var(--spacing-small);
+}
+
+@media screen and (min-width: 768px) {
+  .infoAndUpNext {
+    display: flex;
+  }
+
+  .infoAndUpNext .info {
+    flex-basis: 50%;
+    margin-right: var(--spacing);
+  }
+
+  .infoAndUpNext .upNext {
+    flex-basis: 50%;
+    margin-left: var(--spacing);
+  }
+
+  .player video {
+    max-width: 800px;
+  }
 }
